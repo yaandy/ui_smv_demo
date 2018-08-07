@@ -3,6 +3,7 @@ package com.itls.smv.stepDefinitions;
 import com.itls.smv.steps.LandingSteps;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 public class LandingStepDef {
@@ -14,8 +15,15 @@ public class LandingStepDef {
         landingSteps.openLandingPage();
     }
 
-    @When("I set loan options order to: amount '$loanAmount', period '$creditPeriod'")
-    public void setLoandOptions(String loanAmount, String loanPeriod){
+    @When("I set loan options order to: amount '$loanAmount', period '$creditPeriod', category: '$category'")
+    public void setLoandOptions(String loanAmount, String loanPeriod, String category){
+        landingSteps.setAmount(loanAmount);
+        landingSteps.setPeriod(loanPeriod);
+        landingSteps.setCategory(category);
+    }
 
+    @When("I click on Next Btn")
+    public void clickOnNextBtn(){
+        landingSteps.clickNextBtn();
     }
 }
